@@ -14,7 +14,7 @@ import IconButton from '@mui/material/IconButton';
 
 import { useNavigate } from 'react-router-dom';
 
-import { navbarConfig } from '../../pages/routes/routesConfig';
+import { navbarConfig } from '../../routes/routesConfig';
 
 // configs
 import { SETTING } from '../../configs'

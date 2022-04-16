@@ -14,59 +14,34 @@ import User from './pages/User';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { routesConfig } from './pages/routes/routesConfig';
+import { routesConfig } from './routes/routesConfig';
 
 export default function MiniDrawer() {
-  // const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-  }));
 
   return (
-    <BrowserRouter>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar 
-          open={open}
-          handleDrawerOpen={handleDrawerOpen}  
-        />
-        <NarBar 
-          open={open}
-          handleDrawerClose={handleDrawerClose}/>
-        
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <DrawerHeader />
-          
+    <BrowserRouter>       
           <Routes>
             {routesConfig.map((route, index) => {
               const Component = route.element;
+              const Layout = route.layout || React.Fragment 
+              const Guard = route.guard || React.Fragment
+
               return (
                 <Route
                   key={index}
                   path={route.path}
-                  element={<Component/>}
+                  element={
+                    <Guard>
+                      <Layout>
+                        <Component/>
+                      </Layout>
+                    </Guard>
+                  }
                 />
               )
             })}
           </Routes>
-            
-        </Box>
-      </Box>
     </BrowserRouter>
   );
 }
