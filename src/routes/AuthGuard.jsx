@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom'
+import httpRequest from '../services/httpRequest';
 
 // configs
 import { PATH_NAME } from '../configs'
@@ -16,7 +17,7 @@ function AuthGuard({ children }) {
 
     const checkAuthenticate = async () => {
         try {
-            const res = await axios.post("https://cms-resource-api.herokuapp.com/api/user/auth", {}, {
+            const res = await httpRequest.post("/user/auth", {}, {
                 headers: {
                     'x-auth-token': accessToken
                 }
