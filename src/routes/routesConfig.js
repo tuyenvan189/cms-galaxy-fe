@@ -7,6 +7,7 @@ import Login from "../pages/Login"
 import Kanban from "../pages/Kanban"
 import User from "../pages/User"
 import Register from "../pages/Register"
+import Mail from '../pages/Mail'
 
 import MainLayout from "../layouts/MainLayout/MainLayout";
 //configs
@@ -68,5 +69,11 @@ export const routesConfig = [
         element: Register,
         guard: GuestGuard
         
+    },
+    {
+        path: PATH_NAME.MAIL,
+        elemen: Mail,
+        layout: MainLayout,
+        guard: AuthGuard
     }
 ]

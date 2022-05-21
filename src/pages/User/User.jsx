@@ -1,5 +1,7 @@
 import '../../App.css';
-import React,{useState,useEffect} from 'react'
+import React,{useState,useRef, useEffect} from 'react'
+
+// material core
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,45 +14,81 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SvgIcon from '@mui/material/SvgIcon';
+
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
+// material icon
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
+// apis
 import * as usersApi from '../../apis/usersApi'
 
 
-
-
 export default function User() {
-  const [users, setUsers] = useState([])
-
-  //fetch Users
-  const fetchUsers = async () => {
-    const data = await usersApi.fetchUsers();
-    setUsers(data.data)
-  }
-  useEffect(() => {
-    fetchUsers()
-  }, [])
-
-  // open/close Dialog
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClickClose = () => {
-    setOpen(false);
-  };
-
-  // add user
-  const [forms, setForms] = useState({
+  // initial
+  const formDefault = {
     id:'',
     lastName:'',
     email:'',
     role:'',
-    // action:''
-  })
+  }
+  const [users, setUsers] = useState([])
+  const [openModalAddUser, setOpenModalAddUser] = useState(false);
+  const [forms, setForms] = useState({formDefault})
+
+  // refs
+  const progressRef = useRef(null)
+
+  //fetch Users
+  const fetchUsers = async () => {
+      try {
+        const data = await usersApi.fetchUsers();
+        setUsers(data.data)
+      } catch(err) {
+        console.log('err:',  err)
+      }
+  }
+
+  function handleLoadMore(entries) {
+    console.log('handleLoadMore')
+    const entry = entries[0]
+    if (!entry.isIntersecting) return;
+
+    fetchUsers();
+  }
+
+  useEffect(() => {
+    if (!progressRef) return;
+    let observerRefValue = null
+    const options = {
+      root: null,
+      rootMargin: '100px',
+      threshold: 1.0
+    }
+    const observer = new IntersectionObserver(handleLoadMore, options)
+    observer.observe(progressRef.current)
+    observerRefValue = progressRef.current
+    
+    return () => {
+      if (observerRefValue) {
+        observer.observe(observerRefValue)
+      }
+    }
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // open/close Dialog
+  const handleClickOpen = () => {
+    setOpenModalAddUser(true);
+  };
+  const handleCloseModalAddUser = () => {
+    setOpenModalAddUser(false);
+  };
+
+  // add user
   function onChange(e) {
     const {name,value} = e.target
     setForms({
@@ -61,23 +99,19 @@ export default function User() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const newUser = {
-      id: Date.now().toString(),
+    const bodyData = {
       lastName: forms.lastName,
       email: forms.email,
       role: forms.role,
-      // action: forms.action
     }
-    const res = await fetch(`https://tony-json-server.herokuapp.com/api/users`, {
-      method: 'POST',
-      headers: { 
-        'Content-Type' : 'application/json'
-      },
-      body: JSON.stringify(newUser)
-    })
-    const data = await res.json()
-    setUsers([...users, data.data])
-    setOpen(false);
+    try {
+      await usersApi.addUsers(bodyData);
+      setUsers([bodyData, ...users]);
+      setOpenModalAddUser(false);
+      setForms(formDefault);
+    } catch(err) {
+      console.log('err', ReferenceError)
+    }
   }
 
   return (
@@ -88,7 +122,7 @@ export default function User() {
           + ADD
         </Button>
       </div>
-        <Dialog open={open} onClose={handleClickClose}>
+        <Dialog open={openModalAddUser} onClose={handleCloseModalAddUser}>
           <DialogTitle>Add user</DialogTitle>
           <DialogContent>
             {/* <DialogContentText></DialogContentText> */}
@@ -97,7 +131,7 @@ export default function User() {
             <TextField margin="dense" id="" label="Role" type="text" fullWidth variant="standard" name="role" onChange={onChange} value={forms.role}/>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClickClose}>Cancel</Button>
+            <Button onClick={handleCloseModalAddUser}>Cancel</Button>
             <Button onClick={handleSubmit}>Submit</Button>
           </DialogActions>
         </Dialog>
@@ -128,6 +162,10 @@ export default function User() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <Box sx={{ display: 'flex', justtifyContent: 'center', marginTop: 2 }} ref={progressRef}>
+        <CircularProgress />
+      </Box>
     </div>
   );
 }

@@ -56,7 +56,7 @@ export default function Kanban() {
   }
   useEffect(() => {
     fetchTodos()
-  })
+  }, [])
 
   // open/close Dialog
   const [open, setOpen] = useState(false);
