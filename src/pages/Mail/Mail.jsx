@@ -36,7 +36,7 @@ export default function Mail() {
   }, [dispatch]);
 
   return (
-    <Page title="Mail">
+    <div title="Mail">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
           heading="Mail"
@@ -58,6 +58,6 @@ export default function Mail() {
           <MailCompose isOpenCompose={openCompose} onCloseCompose={() => setOpenCompose(false)} />
         </Card>
       </Container>
-    </Page>
+    </div>
   );
 }

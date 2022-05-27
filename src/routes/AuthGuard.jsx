@@ -14,10 +14,11 @@ function AuthGuard({ children }) {
     const navigate = useNavigate();
     const accessToken = authStorage.getStorage();
     const isAuth = authStorage.isAuthenticated();
+    
 
     const checkAuthenticate = async () => {
         try {
-            const res = await httpRequest.post("/user/auth", {}, {
+            const res = await httpRequest.post("/auth", {}, {
                 headers: {
                     'x-auth-token': accessToken
                 }

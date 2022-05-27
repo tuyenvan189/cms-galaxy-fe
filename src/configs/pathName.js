@@ -6,6 +6,8 @@ const PATH_NAME = {
     PRODUCT: "/product",
     USER: "/user",
     KANBAN: "/kanban",
+    MAIL: "/mail",
+    PROFILE: "/profile",
 
     // guest routes
     LOGIN: "/login",

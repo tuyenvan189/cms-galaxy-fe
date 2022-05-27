@@ -1,0 +1,321 @@
+body {
+  color: #333;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.center {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cover-image {
+  position: relative;
+}
+
+.cover-image .cover-image {
+  opacity: 2;
+}
+
+.cover-image .cover-photo {
+  height: 260px;
+}
+
+.cover-image img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.cover-image .avatar {
+  width: 130px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  top: 160px;
+  right: 250px;
+}
+
+.cover-image .cover-profile {
+  line-height: 5px;
+  position: absolute;
+  top: 180px;
+  right: 60px;
+  color: white;
+}
+
+.cover-image .cover-profile h3 {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.952);
+}
+
+.cover-image .cover-profile p {
+  margin-left: 5px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.534);
+}
+
+.box-menu {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  margin-top: -7px;
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.box-menu Tab:active {
+  color: #049372 !important;
+}
+
+.box-menu .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #049372;
+  border: #049372 !important;
+}
+
+.box-menu .MuiTabs-scroller {
+  margin-left: 30px;
+}
+
+.box-menu .MuiTabs-indicator {
+  background-color: #049372;
+  margin-left: -2px;
+}
+
+.card-styled {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  border-radius: 10px !important;
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-left {
+  width: 30%;
+}
+
+.profile-left .follower {
+  line-height: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.profile-left .follower .vl {
+  border-left: 1px solid rgba(0, 0, 0, 0.137);
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.profile-left .follower .follower-column {
+  width: 40%;
+}
+
+.profile-left .about-content .icon {
+  margin-right: 10px;
+}
+
+.profile-left .about-content .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  line-height: 40px;
+}
+
+.profile-left .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 10px;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.profile-left .social img {
+  padding-right: 10px;
+  width: 30px;
+  height: auto;
+}
+
+.profile-right {
+  width: 68%;
+}
+
+.profile-right .textarea-post {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  height: 200px;
+  font-size: 15px;
+  color: #049372;
+}
+
+.profile-right textarea::-webkit-input-placeholder {
+  color: #0493727a;
+  opacity: 1;
+  /* Firefox */
+}
+
+.profile-right textarea:-ms-input-placeholder {
+  color: #0493727a;
+  opacity: 1;
+  /* Firefox */
+}
+
+.profile-right textarea::-ms-input-placeholder {
+  color: #0493727a;
+  opacity: 1;
+  /* Firefox */
+}
+
+.profile-right textarea::placeholder {
+  color: #0493727a;
+  opacity: 1;
+  /* Firefox */
+}
+
+.profile-right button {
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  background-color: #049372;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.profile-right button:hover {
+  background-color: #2EE59D;
+  -webkit-box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+          box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.profile-right .post-content .ava-name strong {
+  font-size: 15px;
+}
+
+.profile-right .post-content .ava-name img {
+  width: 45px;
+  height: auto;
+  border-radius: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-right .post-content .ava-name .name-info {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 7px;
+}
+
+.profile-right .post-content .ava-name .name-info p {
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.808);
+}
+
+.profile-right .post-content .post-img {
+  width: 100%;
+}
+
+.profile-right .post-content .post-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.profile-right .caption {
+  font-size: 15px;
+}
+
+.profile-right .group {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.profile-right .groupA {
+  width: 33%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto 0;
+}
+
+.profile-right .fav-icon {
+  color: rgba(255, 0, 0, 0.808) !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5px;
+}
+
+.profile-right .groupIcon {
+  width: 10%;
+}
+
+.profile-right .comment .comment-card {
+  width: 92%;
+  background-color: #f4f6f8;
+  padding: 20px 15px 10px 15px;
+  border-radius: 10px;
+}
+
+.profile-right .comment .comment-card p {
+  color: gray;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.profile-right .comment .comment-card .date {
+  font-size: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0;
+}
+/*# sourceMappingURL=Profile.css.map */

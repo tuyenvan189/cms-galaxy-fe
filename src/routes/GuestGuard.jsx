@@ -9,6 +9,7 @@ import authStorage from '../helpers/authStorage';
 
 function GuestGuard({ children }) {
     const isAuth = authStorage.isAuthenticated();
+    
 
     if (isAuth) return <Navigate to={PATH_NAME.ROOT} />
     

@@ -1,5 +1,5 @@
 const SETTING = {
-    DRAWER_WIDTH: 240
+    DRAWER_WIDTH: 280
 }
 
 export default SETTING;

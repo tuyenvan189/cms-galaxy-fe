@@ -59,7 +59,7 @@ function Login() {
       const res = await httpRequest.post("/user/login", {
         ...bodyData
       })
-      const accessToken = res.data?.accessToken;
+      const accessToken = res.data?.token;
       authStorage.setStorage(accessToken)
       navigate(PATH_NAME.ROOT)
     } catch(error) {

@@ -1,0 +1,124 @@
+span {
+  font-size: 14px !important;
+  margin: 0 20px;
+  border-radius: 10px !important;
+}
+
+.arrow-icon {
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+
+.arrow-icon:hover {
+  border-radius: 50%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#049372), to(#04937262));
+  background-image: linear-gradient(to right, #049372, #04937262);
+  border: none;
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+  padding: 3px;
+  color: white;
+}
+
+.hover-2 {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #049372));
+  background-image: linear-gradient(#049372 0 0);
+  background-size: 100% .08em;
+  /* .08em is our fixed height; modify as needed. */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  -webkit-transition: background-size .3s, background-position .3s .3s;
+  transition: background-size .3s, background-position .3s .3s;
+}
+
+.hover-2:hover {
+  cursor: pointer;
+  -webkit-transition: background-size .3s .3s, background-position .3s;
+  transition: background-size .3s .3s, background-position .3s;
+  background-size: 100% 100%;
+  background-position: top;
+  color: white;
+}
+
+.profile-card {
+  border-left: 2px solid #049372;
+  border-bottom: 1px solid #049372;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #0493721c;
+}
+
+.profile-card .avatar-admin {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.profile-card .avatar-admin img {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profile-card .name-role {
+  width: 60%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  line-height: 0px;
+}
+
+.profile-card .name-role h5 {
+  font-size: 15px;
+  margin: 15% auto;
+}
+
+.profile-card .name-role p {
+  font-size: 13px;
+  color: #b9b9b9;
+  line-height: 3px;
+}
+
+.profile-card .name-role p:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.topic {
+  margin: 20px 0 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.MuiListItemButton-root {
+  margin: 0 10px !important;
+  border-radius: 10px !important;
+  -webkit-transition: .3s, background-position 0s !important;
+  transition: .3s, background-position 0s !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0493721c)) calc(100% - var(--p,0%))/var(--p, 0%) no-repeat !important;
+  background: linear-gradient(#0493721c 0 0) calc(100% - var(--p,0%))/var(--p, 0%) no-repeat !important;
+}
+
+.MuiListItemButton-root:hover {
+  --p: 100% !important;
+}
+
+.MuiListItemButton-root:hover .MuiTypography-root {
+  color: #049372 !important;
+  font-weight: 700;
+}
+
+.MuiListItemButton-root:hover .MuiSvgIcon-root {
+  color: #049372 !important;
+}
+/*# sourceMappingURL=NavBar.css.map */

@@ -1,0 +1,119 @@
+$green-color: #049372;
+$background-color: #0493721c;
+
+span {
+    font-size: 14px !important;
+    margin: 0 20px;
+    border-radius: 10px !important; 
+}
+.arrow-icon {
+    transition: transform 0.5s linear;
+   
+    &:hover {
+        border-radius: 50%;
+        background-image: linear-gradient(to right, $green-color , #04937262 );
+        border: none;
+        transition: transform 0.5s linear;
+        padding: 3px;
+        color: white;
+    }
+}
+
+.hover-2 {
+    background-image: linear-gradient($green-color 0 0);
+    background-size: 100% .08em; /* .08em is our fixed height; modify as needed. */
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: background-size .3s, background-position .3s .3s;
+  }
+  .hover-2:hover {
+    cursor: pointer;
+    transition: background-size .3s .3s, background-position .3s;
+    background-size: 100% 100%;
+    background-position: top;
+    color: white;
+}
+
+.profile-card {
+    border-left: 2px solid $green-color;
+    border-bottom: 1px solid $green-color;
+   display: flex;
+   padding: 10px; 
+   margin: 10px;
+   border-radius: 10px;
+    //background-color: #f2f5f3;
+   background-color: #0493721c;
+   .avatar-admin {
+    align-items: center;
+    margin: auto;
+        img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+        }
+    }
+    .name-role {
+        width: 60%;
+        align-items: center;
+        margin: 0 auto;
+        line-height: 0px;
+        h5 {
+            font-size: 15px;
+            margin: 15% auto;
+        }
+        p {
+            font-size: 13px;
+            color:rgb(185, 185, 185);
+            line-height: 3px;
+            &:hover {
+                cursor: pointer;
+                color:white;
+            }
+        }
+    }
+}
+
+.topic {
+    margin: 20px 0 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+// .app-name {
+//     margin: 0 10px;
+//     border-radius: 10px;
+//     &:hover + span {
+//         background-color: $background-color;
+//         font-weight: 700 !important;
+//         background-color: $background-color !important;
+//     }
+// }
+
+.MuiListItemButton-root {
+    margin: 0 10px !important;
+    border-radius: 10px !important;
+    transition: .3s, background-position 0s !important;
+    background: linear-gradient($background-color 0 0) calc(100% - var(--p,0%)) / var(--p,0%) no-repeat !important;
+}
+.MuiListItemButton-root:hover {
+    --p: 100% !important;
+    .MuiTypography-root {
+        color: $green-color !important;
+        font-weight: 700;
+    }
+    .MuiSvgIcon-root  {
+        color: $green-color !important;
+    }
+}
+
+// .MuiListItemButton-root:active {
+//     transition: 0.2s !important;
+//     color: $green-color !important;
+//     font-weight: 700 !important;
+//     background-color: $background-color !important;
+// }
+// .cont2 {
+//     transition: 0.2s !important;
+//      color: $green-color !important;
+//      font-weight: 700 !important;
+//      background-color: $background-color !important;
+// }

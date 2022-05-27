@@ -13,12 +13,12 @@ const InputStyle = styled(TextField, {
       duration: theme.transitions.duration.shorter,
     }),
     '&.Mui-focused': {
-      boxShadow: theme.customShadows.z12,
+      // boxShadow: theme.customShadows.z12,
     },
     ...(stretchStart && {
       width: stretchStart,
       '&.Mui-focused': {
-        boxShadow: theme.customShadows.z12,
+        // boxShadow: theme.customShadows.z12,
         [theme.breakpoints.up('sm')]: {
           width: stretchStart + 60,
         },

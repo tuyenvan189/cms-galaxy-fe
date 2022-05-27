@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
+import './NavBar.scss'
+import '../../index.css'
 import { styled, useTheme } from '@mui/material/styles';
 import List from '@mui/material/List';
 import MuiDrawer from '@mui/material/Drawer';
@@ -11,10 +13,13 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import avatarAdmin from './assests/img.JPG'
 
 import { useNavigate } from 'react-router-dom';
 
-import { navbarConfig } from '../../routes/routesConfig';
+import { navbarConfig1 } from '../../routes/routesConfig';
+import { navbarConfig2 } from '../../routes/routesConfig';
 
 // configs
 import { SETTING } from '../../configs'
@@ -71,30 +76,45 @@ const openedMixin = (theme) => ({
 export default function NarBar({open, handleDrawerClose}) {
     const theme = useTheme();
     const navigate = useNavigate();
+    // const [style, setStyle] = useState("");
 
     function handleNavigate(href) {
+      // setStyle("cont2");
       navigate(href);
     }
 
     return (
-        <DrawerStyled variant="permanent" open={open}>
+        <DrawerStyled variant="permanent" open={open}> 
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <KeyboardDoubleArrowLeftIcon onClick={handleDrawerClose} style={{'cursor':'pointer'}} className='arrow-icon'>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+          </KeyboardDoubleArrowLeftIcon>
         </DrawerHeader>
         <Divider />
+        
+        <div className='profile-card hover-2'>
+          <div className='avatar-admin'><img src={avatarAdmin} alt='avatar' href='/'/></div>
+          <div className='name-role'>
+            <h5>Tuyen Cat Van</h5>
+            <p>admin</p>
+          </div>
+        </div>
+
         <List>
-          {navbarConfig.map((item, index) => (
+          <div className='topic'>MANAGEMENT</div>
+          {navbarConfig1.map((item, index) => (
             <ListItemButton
+            // className={style} 
             onClick={()=> handleNavigate(item.href)}
               key={index}
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
+                
               }}
             >
+              
               <ListItemIcon
                 sx={{
                   minWidth: 0,
@@ -104,7 +124,39 @@ export default function NarBar({open, handleDrawerClose}) {
               >
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
+                style={{fontSize:'10px'}}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+        <List>
+          <div className='topic'>APP</div>
+          {navbarConfig2.map((item, index) => (
+            <ListItemButton
+            // className={style} 
+            onClick={()=> handleNavigate(item.href)}
+              key={index}
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+                
+              }}
+            >
+              
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
+                style={{fontSize:'10px'}}
+              />
             </ListItemButton>
           ))}
         </List>
