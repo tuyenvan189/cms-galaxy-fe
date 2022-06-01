@@ -1,5 +1,5 @@
 {
-  "homepage":"http://vancattuyen92.github.io/cms-dashboard",
+  "homepage": "http://vancattuyen92.github.io/cms-galaxy-fe",
   "name": "cms-galaxy-fe",
   "version": "0.1.0",
   "private": true,
@@ -44,8 +44,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "env-cmd -f .env.test react-scripts start",
     "test": "react-scripts test",
