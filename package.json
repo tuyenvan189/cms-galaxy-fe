@@ -1,8 +1,12 @@
 {
+  "homepage":"http://vancattuyen92.github.io/cms-dashboard",
   "name": "cms-galaxy-fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-chart": "^3.0.3",
+    "@devexpress/dx-react-chart-material-ui": "^3.0.3",
+    "@devexpress/dx-react-core": "^3.0.3",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@fontsource/roboto": "^4.5.3",
@@ -14,12 +18,14 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "date-fns": "^2.28.0",
     "env-cmd": "^10.1.0",
     "material-ui-flags": "^1.2.4",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
+    "react-chartjs-2": "^4.1.0",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.3.0",
     "react-lazy": "^1.1.0",
@@ -38,6 +44,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "env-cmd -f .env.test react-scripts start",
     "test": "react-scripts test",
@@ -62,6 +70,7 @@
     ]
   },
   "devDependencies": {
-    "@iconify/react": "^3.2.1"
+    "@iconify/react": "^3.2.1",
+    "gh-pages": "^4.0.0"
   }
 }

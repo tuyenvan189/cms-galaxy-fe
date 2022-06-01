@@ -31,16 +31,16 @@ export const navbarConfig1 = [
 
 export const navbarConfig2 = [
     {
+        title: 'Kanban',
+        href: PATH_NAME.KANBAN
+    },
+    {
         title:'Dashboard',
         href: PATH_NAME.DASHBOARD
     },
     {
         title: 'Product',
         href: PATH_NAME.PRODUCT
-    },
-    {
-        title: 'Kanban',
-        href: PATH_NAME.KANBAN
     },
     {
         title: 'Mail',

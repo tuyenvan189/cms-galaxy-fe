@@ -1,0 +1,48 @@
+$green-color: #049372;
+$background-color: #0493721c;
+$light-green: #e3f3f0;
+$border: rgba(0, 0, 0, 0.137);
+.green {
+  background-color: #D5F5E3 ;
+  color: #34a866;
+}
+.blue {
+  background-color: #D6EAF8;
+  color:#156dac;
+}
+.yellow {
+  background-color: #FEF9E7;
+  color: #c49f1c;
+}
+.pink {
+  background-color: #ffdae2;
+  color:#e72d55;
+}
+body {
+  color: #333;
+} 
+.dashboard-summary {
+  margin-bottom: 30px;
+}
+.card-content {
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  padding: 40px 80px;
+  width: 100%;
+  height: 100%;
+  line-height: 10px;
+
+  .icon {
+    border: 1px dot rgb(0, 0, 0);
+    border-radius: 50%;
+    padding: 10px 5px;
+    font-size: 20px;
+  }
+  p {
+    margin-top:0;
+    font-size: 14px;
+    font-weight: 550;
+    color: rgba(51, 51, 51, 0.473);
+  }
+}

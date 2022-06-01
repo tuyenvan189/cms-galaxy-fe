@@ -51,6 +51,7 @@ export default function User() {
         console.log('err:',  err)
       }
   }
+  console.log('usersssss', users)
 
   function handleLoadMore(entries) {
     console.log('handleLoadMore')

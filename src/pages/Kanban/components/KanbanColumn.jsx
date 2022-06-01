@@ -1,16 +1,17 @@
 import React from 'react';
-import KanbanCard from './KanbanCard';
+import { useSelector } from 'react-redux';
 // mui core
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 // libs
-import { Draggable } from 'react-beautiful-dnd';
-import { Droppable } from 'react-beautiful-dnd';
-import { dataBoard } from '../../../mocks/dataKanban';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
+// sections
+import KanbanCard from './KanbanCard';
 
 function KanbanColumn({ column, index }) {
-  console.log(column)
+  const board = useSelector(state => state.kanban.board);
+
   return (
     <Draggable draggableId={column.id} index={index}>
       {(provided) => (
@@ -26,25 +27,25 @@ function KanbanColumn({ column, index }) {
             </Typography>
 
             <Droppable droppableId={column.id} type="task">
-                {(provided) => (
-                    <Stack
-                    {...provided.draggableProps}
-                    ref={provided.innerRef}
-                    spacing={2}
-                    width={280}
-                    >
-                      {column.cardIds.map((cardId, index) => (
-                          <div>
-                              <KanbanCard
-                                key={cardId}
-                                indexn={index}
-                                card={dataBoard?.cards[cardId]}
-                              />
-                          </div>
-                      ))}
-                      {provided.placeholder}
-                    </Stack>
-                )}
+              {(provided) => (
+                <Stack
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  spacing={2}
+                  width={280}
+                >
+                  {column.cardIds.map((cardId, index) => (
+                    <KanbanCard 
+                      key={cardId}
+                      index={index}
+                      card={board?.cards[cardId]}
+                    />
+                  ))}
+
+                  {provided.placeholder}
+                  
+                </Stack>
+              )}
             </Droppable>
           </Stack>
         </Paper>
