@@ -13,7 +13,7 @@ import PestControlIcon from '@mui/icons-material/PestControl';
 export default function Dashboard() {
   
   return (
-    <div className='dashboard'>
+    <div className='dashboard container'>
       <h2 style={{color:'#049372'}}>Hi, Welcome back !</h2>
       <div className='dashboard-summary j-between'>
         <Card style={{borderRadius:'10px'}}>

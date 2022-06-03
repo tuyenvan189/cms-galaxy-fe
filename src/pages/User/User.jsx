@@ -116,7 +116,7 @@ export default function User() {
   }
 
   return (
-    <div className='users'>
+    <div className='users container'>
       <div className="group">
         <h2>User</h2>
         <Button variant="contained" size="small" sx={{ bgcolor: 'secondary.main' }} onClick={handleClickOpen}>

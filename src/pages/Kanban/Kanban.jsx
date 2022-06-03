@@ -1,11 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector, useCallback } from 'react-redux';
+import {Input} from 'reactstrap';
+
+import '../../index.css'
+import './Kanban.scss'
 
 // libs
 import { DragDropContext, Droppable} from 'react-beautiful-dnd';
 // mui core
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 // mocks
 import { dataBoard } from '../../mocks/dataKanban';
 // sections
@@ -18,6 +32,51 @@ import { getBoards, updateCardOrder, updateColumnOrder } from '../../redux/slice
 export default function Kanban() {
   const dispatch = useDispatch();
   const board = useSelector(state => state.kanban.board);
+  const [open, setOpen] = useState(false);
+  const [boards, setBoards] = useState(board)
+  const [forms, setForms] = useState({
+    id:'',
+    name: '',
+    description: '',
+    column: ''
+  })
+  function onChange(event) {
+    const { name,value } = event.target;
+    setForms(prevState => {
+      return {
+        ...prevState,
+        [name]:value
+      }
+    })
+  }
+  function handleSubmit(e) {
+    e.preventDefault()
+    dispatch({
+      type:board,
+      payload: {
+        id:Date.now().toString(),
+        name: forms.name,
+        description: forms.description,
+        column: forms.column
+      }
+    })
+    // const newCard = {
+    //   id:Date.now().toString(),
+    //   name: forms.name,
+    //   description: forms.description,
+    //   column: forms.column
+    // }
+  }
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  
 
   // get data board
   useEffect(() => {
@@ -25,7 +84,8 @@ export default function Kanban() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log('board: ', board)
+  // console.log('board: ', board)
+
 
 
   function onDragEnd(result) {
@@ -87,14 +147,33 @@ export default function Kanban() {
     }))
 
   }
-
   return (
-    <>
-      <div className="group">
-        <h2>Kanban Board</h2>
-        <Button variant="contained" size="small" sx={{ bgcolor: 'secondary.main' }}>
-          + ADD TASK
-        </Button>
+    <div>
+      <h2>Kanban Board</h2>
+      <div className="">
+        <div>
+          <Button variant="outlined" onClick={handleClickOpen}>
+            + ADD CARD
+          </Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>ADD CARD</DialogTitle>
+                <FormControl style={{padding: '20px'}}>
+                  <TextField id="standard-basic" label="Name" variant="standard" name='name' value={forms.name} onChange={onChange}/>
+                  <TextField id="standard-basic" label="Description" variant="standard" style={{marginTop:'20px'}} name='description' onChange={onChange} value={forms.description}/>
+                  <FormLabel id="demo-row-radio-buttons-group-label" style={{marginTop:'40px'}}>Column</FormLabel>
+                  <Input type="select" name="column" value={forms.column} onChange={onChange}>
+                        <option>Backlog</option>
+                        <option>Progress</option>
+                        <option>Q&A</option>
+                        <option>Production</option>
+                  </Input>
+                </FormControl>
+            <DialogActions>
+              <Button onClick={handleClose}>CANCEL</Button>
+              <Button onClick={handleSubmit}>ADD</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
       </div>
 
       <DragDropContext onDragEnd={onDragEnd}>
@@ -121,10 +200,7 @@ export default function Kanban() {
             </Stack>
           )}
         </Droppable>
-      </DragDropContext>
-
-      
-    </>
-
+      </DragDropContext> 
+    </div>
   );
 }

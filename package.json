@@ -1,5 +1,4 @@
 {
-  "homepage": "http://vancattuyen92.github.io/dashboard",
   "name": "cms-galaxy-fe",
   "version": "0.1.0",
   "private": true,
@@ -20,6 +19,7 @@
     "axios": "^0.26.1",
     "chartjs-plugin-datalabels": "^2.0.0",
     "date-fns": "^2.28.0",
+    "devtool": "^2.3.1",
     "env-cmd": "^10.1.0",
     "material-ui-flags": "^1.2.4",
     "prop-types": "^15.8.1",
@@ -36,6 +36,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "reactstrap": "^9.0.3",
     "redux-persist": "^6.0.0",
     "rehype-raw": "^6.1.1",
     "sass": "^1.52.1",
@@ -45,8 +46,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "env-cmd -f .env.test react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

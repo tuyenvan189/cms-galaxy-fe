@@ -158,7 +158,7 @@ export default class Product extends React.PureComponent {
     const { data: chartData } = this.state;
 
     return (
-      <div>
+      <div className='container'>
         <h2 style={{color:'#049372'}}>Products</h2>
         <Paper>
           <StyledChart

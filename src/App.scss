@@ -24,14 +24,3 @@ body {
   border-right: 1px solid rgba(128, 128, 128, 0.192);
   //height: 100vh;
 }
-
-.group {
-  position: relative;
-  Button {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 10%;
-    right: 1%;
-  }
-}
