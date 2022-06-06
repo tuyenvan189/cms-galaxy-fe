@@ -26,20 +26,4 @@ body {
   width: 250px;
   border-right: 1px solid rgba(128, 128, 128, 0.192);
 }
-
-.group {
-  position: relative;
-}
-
-.group Button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  top: 10%;
-  right: 1%;
-}
 /*# sourceMappingURL=App.css.map */

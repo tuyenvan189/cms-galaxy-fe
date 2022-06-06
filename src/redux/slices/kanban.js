@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dataBoard } from '../../mocks/dataKanban'
 
 const initialState = {
   board: {}

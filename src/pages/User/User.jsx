@@ -27,6 +27,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import * as usersApi from '../../apis/usersApi'
 
 
+
 export default function User() {
   // initial
   const formDefault = {
@@ -42,43 +43,44 @@ export default function User() {
   // refs
   const progressRef = useRef(null)
 
-  //fetch Users
+  // fetch Users
   const fetchUsers = async () => {
-      try {
-        const data = await usersApi.fetchUsers();
-        setUsers(data.data)
-      } catch(err) {
-        console.log('err:',  err)
-      }
+    try {
+      const data = await usersApi.fetchUsers();
+      setUsers(data.data)
+    } catch(err) {
+      console.log('err:',  err)
+    }
   }
+
   console.log('usersssss', users)
 
   function handleLoadMore(entries) {
-    console.log('handleLoadMore')
-    const entry = entries[0]
-    if (!entry.isIntersecting) return;
+  console.log('handleLoadMore')
+  const entry = entries[0]
+  if (!entry.isIntersecting) return;
 
-    fetchUsers();
+  fetchUsers();
   }
 
   useEffect(() => {
-    if (!progressRef) return;
-    let observerRefValue = null
-    const options = {
-      root: null,
-      rootMargin: '100px',
-      threshold: 1.0
+  if (!progressRef) return;
+  let observerRefValue = null
+  const options = {
+    root: null,
+    rootMargin: '100px',
+    threshold: 1.0
+  }
+  const observer = new IntersectionObserver(handleLoadMore, options)
+  observer.observe(progressRef.current)
+  observerRefValue = progressRef.current
+
+  return () => {
+    if (observerRefValue) {
+      observer.observe(observerRefValue)
     }
-    const observer = new IntersectionObserver(handleLoadMore, options)
-    observer.observe(progressRef.current)
-    observerRefValue = progressRef.current
-    
-    return () => {
-      if (observerRefValue) {
-        observer.observe(observerRefValue)
-      }
-    }
-    //  eslint-disable-next-line react-hooks/exhaustive-deps
+  }
+  //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // open/close Dialog

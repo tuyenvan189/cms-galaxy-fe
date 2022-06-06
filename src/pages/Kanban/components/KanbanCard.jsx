@@ -1,5 +1,4 @@
 import { Draggable } from 'react-beautiful-dnd';
-import { Droppable } from 'react-beautiful-dnd';
 
 // mui core
 import Card from "@mui/material/Card";

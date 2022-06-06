@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Dashboard.scss'
 import '../../index.css'
 import BarChart from './Chart/barChart';

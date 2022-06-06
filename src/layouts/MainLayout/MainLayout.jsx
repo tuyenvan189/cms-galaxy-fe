@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 
 import AppBar from '../../components/AppBar/AppBar';
 import NarBar from '../../components/NarBar/NarBar';

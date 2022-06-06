@@ -3,7 +3,6 @@ import Paper from '@mui/material/Paper';
 import {
   Chart,
   PieSeries,
-  Title,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
 

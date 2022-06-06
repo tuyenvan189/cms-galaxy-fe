@@ -8,7 +8,6 @@ import {
   ScatterSeries,
   ArgumentAxis,
   ValueAxis,
-  Title,
   Legend,
   Tooltip,
 } from '@devexpress/dx-react-chart-material-ui';
