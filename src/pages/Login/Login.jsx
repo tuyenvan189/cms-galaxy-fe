@@ -21,7 +21,6 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { PATH_NAME } from "../../configs";
 import authStorage from "../../helpers/authStorage"
 
-const axios = require('axios');
 
 
 function Copyright(props) {
@@ -59,7 +58,7 @@ function Login() {
       const res = await httpRequest.post("/user/login", {
         ...bodyData
       })
-      const accessToken = res.data?.token;
+      const accessToken = res.data?.accessToken;
       authStorage.setStorage(accessToken)
       navigate(PATH_NAME.ROOT)
     } catch(error) {

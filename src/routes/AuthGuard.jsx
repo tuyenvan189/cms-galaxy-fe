@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import httpRequest from '../services/httpRequest';
 
 // configs
@@ -18,7 +18,7 @@ function AuthGuard({ children }) {
 
     const checkAuthenticate = async () => {
         try {
-            const res = await httpRequest.post("/auth", {}, {
+            const res = await httpRequest.post("/user/auth", {}, {
                 headers: {
                     'x-auth-token': accessToken
                 }
