@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector, useCallback } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {Input} from 'reactstrap';
 
 import '../../index.css'
@@ -13,11 +13,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 // mocks
@@ -33,7 +29,7 @@ export default function Kanban() {
   const dispatch = useDispatch();
   const board = useSelector(state => state.kanban.board);
   const [open, setOpen] = useState(false);
-  const [boards, setBoards] = useState(board)
+  //const [boards, setBoards] = useState(board)
   const [forms, setForms] = useState({
     id:'',
     name: '',

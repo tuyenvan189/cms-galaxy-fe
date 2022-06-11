@@ -10,7 +10,6 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 // hooks
 import useSettings from '../../hooks/useSettings';
 // components
-import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 //import { MailList, MailDetails, MailSidebar, MailCompose } from './MailComponents';
 import MailList from './MailComponents/MailList';

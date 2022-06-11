@@ -25,17 +25,12 @@ import TabPanel from '@mui/lab/TabPanel';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import SchoolIcon from '@mui/icons-material/School';
-import WorkIcon from '@mui/icons-material/Work';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import MarkChatReadIcon from '@mui/icons-material/MarkChatRead';
 import NetworkPingIcon from '@mui/icons-material/NetworkPing';
-import MoodIcon from '@mui/icons-material/Mood';
-import SendIcon from '@mui/icons-material/Send';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export default function Profile() {
