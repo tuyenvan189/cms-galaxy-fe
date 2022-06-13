@@ -94,6 +94,7 @@ function Login() {
             autoComplete="email"
             autoFocus
           />
+          <p style={{"margin":"0 auto", "fontSize":"13px"}}>email: tuyenvan@gmail.com</p>
           <TextField
             margin="normal"
             required
@@ -104,6 +105,7 @@ function Login() {
             id="password"
             autoComplete="current-password"
           />
+          <p style={{"margin":"0 auto", "fontSize":"13px"}}>password: 123456</p>
           <Button
             type="submit"
             fullWidth

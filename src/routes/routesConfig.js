@@ -7,7 +7,7 @@ import Login from "../pages/Login"
 import Kanban from "../pages/Kanban"
 import User from "../pages/User"
 import Register from "../pages/Register"
-import Mail from '../pages/Mail'
+// import Mail from '../pages/Mail'
 import Profile from '../pages/Profile'
 
 import MainLayout from "../layouts/MainLayout/MainLayout";
@@ -42,10 +42,10 @@ export const navbarConfig2 = [
         title: 'Product',
         href: PATH_NAME.PRODUCT
     },
-    {
-        title: 'Mail',
-        href: PATH_NAME.MAIL
-    },
+    // {
+    //     title: 'Mail',
+    //     href: PATH_NAME.MAIL
+    // },
 ]
 
 export const routesConfig = [
@@ -88,12 +88,12 @@ export const routesConfig = [
         guard: GuestGuard
         
     },
-    {
-        path: PATH_NAME.MAIL,
-        element: Mail,
-        layout: MainLayout,
-        guard: AuthGuard
-    },
+    // {
+    //     path: PATH_NAME.MAIL,
+    //     element: Mail,
+    //     layout: MainLayout,
+    //     guard: AuthGuard
+    // },
     {
         path: PATH_NAME.PROFILE,
         element: Profile,

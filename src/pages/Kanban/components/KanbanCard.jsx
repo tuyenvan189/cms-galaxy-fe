@@ -1,5 +1,5 @@
 import { Draggable } from 'react-beautiful-dnd';
-
+import { useDispatch } from 'react-redux';
 // mui core
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -8,9 +8,18 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Typography from '@mui/material/Typography';
-
-export default function KanbanCard({card, index}) {
+import { deleteCard } from '../../../redux/slices/kanban';
+export default function KanbanCard({card, columnId, index}) {
+    const dispatch = useDispatch()
     if (!card) return null;
+    
+    
+    function handleDeleteTodo() {
+        dispatch(deleteCard({
+            cardId: card.id,
+            columnId
+        }))
+    }
     
     return (
         <Draggable draggableId={card.id} index={index}>
@@ -36,6 +45,7 @@ export default function KanbanCard({card, index}) {
                         </AvatarGroup>
                         </CardContent>
                         <CardActions>
+                        <Button size="small" onClick={handleDeleteTodo}>Delete</Button>
                         <Button size="small">Edit</Button>
                         <Button size="small">View</Button>
                         </CardActions>

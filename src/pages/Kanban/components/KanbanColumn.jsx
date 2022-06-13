@@ -38,6 +38,7 @@ function KanbanColumn({ column, index }) {
                     <KanbanCard 
                       key={cardId}
                       index={index}
+                      columnId={column.id}
                       card={board?.cards[cardId]}
                     />
                   ))}

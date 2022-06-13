@@ -22,7 +22,7 @@ import { dataBoard } from '../../mocks/dataKanban';
 import KanbanColumn from './components/KanbanColumn';
 
 // redux
-import { getBoards, updateCardOrder, updateColumnOrder } from '../../redux/slices/kanban';
+import { getBoards, updateCardOrder, updateColumnOrder, addCard } from '../../redux/slices/kanban';
 
 
 export default function Kanban() {
@@ -46,24 +46,27 @@ export default function Kanban() {
     })
   }
   function handleSubmit(e) {
-    e.preventDefault()
-    dispatch({
-      type:board,
-      payload: {
-        id:Date.now().toString(),
-        name: forms.name,
-        description: forms.description,
-        column: forms.column
-      }
-    })
-    // const newCard = {
-    //   id:Date.now().toString(),
-    //   name: forms.name,
-    //   description: forms.description,
-    //   column: forms.column
-    // }
-  }
+    e.preventDefault();
 
+    if(!forms.column) {
+      // show validate
+      return
+    };
+
+    const object = {
+      columnId: forms.column,
+      cards: {
+        id: Date.now().toString(),
+        description: forms.description,
+        name:  forms.name,
+        assignee: []
+      }
+    }
+    dispatch(addCard(object));
+    setOpen(false);
+    // call api to save todo item into db
+    // ...
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -158,10 +161,11 @@ export default function Kanban() {
                   <TextField id="standard-basic" label="Description" variant="standard" style={{marginTop:'20px'}} name='description' onChange={onChange} value={forms.description}/>
                   <FormLabel id="demo-row-radio-buttons-group-label" style={{marginTop:'40px'}}>Column</FormLabel>
                   <Input type="select" name="column" value={forms.column} onChange={onChange}>
-                        <option>Backlog</option>
-                        <option>Progress</option>
-                        <option>Q&A</option>
-                        <option>Production</option>
+                    <option value="">Please choose column</option>
+                    <option value="8cd887ec-b3bc-11eb-8529-0242ac130003">Backlog</option>
+                    <option value="23008a1f-ad94-4771-b85c-3566755afab7">Progress</option>
+                    <option value="37a9a747-f732-4587-a866-88d51c037641">Q&A</option>
+                    <option value="4ac3cd37-b3e1-466a-8e3b-d7d88f6f5d4f">Production</option>
                   </Input>
                 </FormControl>
             <DialogActions>
