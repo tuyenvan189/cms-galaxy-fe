@@ -39,14 +39,14 @@ export const kanbanSlices = createSlice({
       console.log('deelete: ', JSON.parse(JSON.stringify(state.board)))
     },
     updateCardInfo: (state, action) => {
-        const { cardId, columnId } = action.payload;
+        
 
     },
     updateColumnInfo: (state, action) => {
 
     },
     viewCard: (state, action) => {
-      const { cardId, columnID } = action.payload;
+     
 
     }
   }
