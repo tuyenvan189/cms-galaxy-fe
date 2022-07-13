@@ -1,22 +1,22 @@
 import '../../App.css';
 import './user.scss'
 import React,{useState,useRef, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // material core
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TableHead from '@mui/material/TableHead';
+// import TableRow from '@mui/material/TableRow';
+// import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import SvgIcon from '@mui/material/SvgIcon';
+// import SvgIcon from '@mui/material/SvgIcon';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -29,13 +29,12 @@ import Avatar from '@mui/material/Avatar';
 
 import photo from "./photo.jpg"
 // material icon
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
+// import ModeEditIcon from '@mui/icons-material/ModeEdit';
 // apis
 import * as usersApi from '../../apis/usersApi'
 
-let defaultUsers = [];
-
 export default function User() {
+  let defaultUsers = [];
   // initial
   const formDefault = {
     id:'',
@@ -48,7 +47,7 @@ export default function User() {
   const [users, setUsers] = useState([])
   const [openModalAddUser, setOpenModalAddUser] = useState(false);
   const [forms, setForms] = useState({formDefault})
-  const [isErrorEmail, setIsErrorEmail] = useState(false)
+  const [isErrorEmail, ] = useState(false)
   // const {id} = useParams()
 
   // refs
