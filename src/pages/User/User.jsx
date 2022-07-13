@@ -34,8 +34,7 @@ import photo from "./photo.jpg"
 import * as usersApi from '../../apis/usersApi'
 
 export default function User() {
-  let defaultUsers = [];
-  // initial
+ 
   const formDefault = {
     id:'',
     firstName:'',
@@ -58,7 +57,6 @@ export default function User() {
     try {
       const data = await usersApi.fetchUsers();
       setUsers(data.data)
-      defaultUsers = data.data
     } catch(err) {
       console.log('err:',  err)
     }
@@ -141,7 +139,6 @@ export default function User() {
         console.log('user after res', res)
         console.log('users after deleting: ', newUsers)
         setUsers(newUsers);
-        defaultUsers = newUsers;
     } catch(err) {
         console.log('err', ReferenceError)
     }
