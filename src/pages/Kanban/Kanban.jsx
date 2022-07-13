@@ -151,17 +151,17 @@ export default function Kanban() {
       <h2>Kanban Board</h2>
       <div className="">
         <div>
-          <Button variant="outlined" onClick={handleClickOpen}>
+          <Button variant="outlined" onClick={handleClickOpen} className="addButton">
             + ADD CARD
           </Button>
-          <Dialog open={open} onClose={handleClose}>
+          <Dialog open={open} onClose={handleClose} className="addCard">
             <DialogTitle>ADD CARD</DialogTitle>
-                <FormControl style={{padding: '20px'}}>
+                <FormControl style={{padding: '20px', width: '500px'}}>
                   <TextField id="standard-basic" label="Name" variant="standard" name='name' value={forms.name} onChange={onChange}/>
                   <TextField id="standard-basic" label="Description" variant="standard" style={{marginTop:'20px'}} name='description' onChange={onChange} value={forms.description}/>
-                  <FormLabel id="demo-row-radio-buttons-group-label" style={{marginTop:'40px'}}>Column</FormLabel>
-                  <Input type="select" name="column" value={forms.column} onChange={onChange}>
-                    <option value="">Please choose column</option>
+                  <FormLabel id="demo-row-radio-buttons-group-label" style={{marginTop:'40px'}}></FormLabel>
+                  <Input type="select" name="column" value={forms.column} onChange={onChange} style={{padding:'10px', fontSize: '15px', color: 'gray'}}>
+                    <option value="" className="option">Please choose column</option>
                     <option value="8cd887ec-b3bc-11eb-8529-0242ac130003">Backlog</option>
                     <option value="23008a1f-ad94-4771-b85c-3566755afab7">Progress</option>
                     <option value="37a9a747-f732-4587-a866-88d51c037641">Q&A</option>
@@ -196,7 +196,7 @@ export default function Kanban() {
               ))}
 
               {provided.placeholder}
-              
+               
             </Stack>
           )}
         </Droppable>

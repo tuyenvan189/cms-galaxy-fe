@@ -121,9 +121,9 @@ function Login() {
                 Forgot password?
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item style={{"marginLeft":"20px"}}>
               <Link href={PATH_NAME.REGISTER} variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Don't have an account? Sign Up."}
               </Link>
             </Grid>
           </Grid>

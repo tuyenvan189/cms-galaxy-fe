@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Typography from '@mui/material/Typography';
-import { deleteCard } from '../../../redux/slices/kanban';
+import { deleteCard, viewCard } from '../../../redux/slices/kanban';
 export default function KanbanCard({card, columnId, index}) {
     const dispatch = useDispatch()
     if (!card) return null;
@@ -16,6 +16,13 @@ export default function KanbanCard({card, columnId, index}) {
     
     function handleDeleteTodo() {
         dispatch(deleteCard({
+            cardId: card.id,
+            columnId
+        }))
+    }
+
+    function handleView() {
+        dispatch(viewCard({
             cardId: card.id,
             columnId
         }))
@@ -46,8 +53,8 @@ export default function KanbanCard({card, columnId, index}) {
                         </CardContent>
                         <CardActions>
                         <Button size="small" onClick={handleDeleteTodo}>Delete</Button>
-                        <Button size="small">Edit</Button>
-                        <Button size="small">View</Button>
+                        {/* <Button size="small" onClick={handleEdit}>Edit</Button> */}
+                        <Button size="small" onClick={handleView}>View</Button>
                         </CardActions>
                     </Card>
                 </div>

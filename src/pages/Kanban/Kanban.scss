@@ -1,0 +1,19 @@
+$green-color: #049372;
+$background-color: #0493721c;
+$light-green: #e3f3f0;
+$border: rgba(0, 0, 0, 0.137);
+
+.option {
+    padding: 10px 0 !important;
+}
+.addButton {
+    background-color: $light-green !important;
+    color: $green-color !important;
+    padding: 5px 10px !important;
+    box-sizing: border-box;
+    margin-bottom: 10px !important;
+    &:hover {
+        background-color: $green-color !important;
+        color: white !important;
+    }
+}
