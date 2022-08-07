@@ -93,17 +93,21 @@ span {
     border-radius: 10px !important;
     transition: .3s, background-position 0s !important;
     background: linear-gradient($background-color 0 0) calc(100% - var(--p,0%)) / var(--p,0%) no-repeat !important;
+    .MuiTypography-root {
+        font-weight: 500;
+    }
 }
+
 .MuiListItemButton-root:hover {
     --p: 100% !important;
     .MuiTypography-root {
         color: $green-color !important;
-        font-weight: 700;
     }
     .MuiSvgIcon-root  {
         color: $green-color !important;
     }
 }
+
 
 // .MuiListItemButton-root:active {
 //     transition: 0.2s !important;

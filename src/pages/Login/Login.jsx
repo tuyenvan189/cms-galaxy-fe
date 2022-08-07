@@ -11,7 +11,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import httpRequest from "../../services/httpRequest";
+import { login } from '../../redux/slices/app'
 
 // material icons
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -19,7 +19,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 // configs
 import { PATH_NAME } from "../../configs";
-import authStorage from "../../helpers/authStorage"
+import { dispatch } from "../../redux/store";
 
 
 
@@ -54,16 +54,21 @@ function Login() {
     }
 
     // call api
-    try {
-      const res = await httpRequest.post("/user/login", {
-        ...bodyData
-      })
-      const accessToken = res.data?.accessToken;
-      authStorage.setStorage(accessToken)
-      navigate(PATH_NAME.ROOT)
-    } catch(error) {
-      console.log('login error',error)
-    }
+    // try {
+    //   const res = await httpRequest.post("/user/login", {
+    //     ...bodyData
+    //   })
+    //   const accessToken = res.data?.accessToken;
+    //   authStorage.setStorage(accessToken)
+    //   navigate(PATH_NAME.ROOT)
+    // } catch(error) {
+    //   console.log('login error',error)
+    // }
+
+    dispatch(login({
+      bodyData,
+      navigate
+    }))
   }
 
   return (
