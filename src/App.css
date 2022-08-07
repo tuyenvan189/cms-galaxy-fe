@@ -14,7 +14,9 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-
+.flex {
+  display: flex;
+}
 .navbar .logo-group {
   width: 250px;
   border-right: 1px solid rgba(128, 128, 128, 0.192);

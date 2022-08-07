@@ -28,12 +28,21 @@ $border: rgba(0, 0, 0, 0.137);
 .addButton {
     background-color: $light-green !important;
     color: $green-color !important;
-    padding: 5px 10px !important;
+    padding: 5px 18px !important;
     box-sizing: border-box;
-    margin-bottom: 10px !important;
+    height: 30px;
     border: 1px solid $green-color !important;
     &:hover {
         background-color: $green-color !important;
         color: white !important;
     }
+}
+
+.role-filter {
+    margin-bottom: 10px !important;
+    width: min-content;
+}
+
+.MuiSelect-standard {
+    border: 1px solid $green-color !important;
 }

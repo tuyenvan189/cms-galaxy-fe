@@ -1,6 +1,7 @@
 import React from 'react'
 import './NavBar.scss'
 import '../../index.css'
+import { palette } from '@mui/system';
 import { styled, useTheme } from '@mui/material/styles';
 import List from '@mui/material/List';
 import MuiDrawer from '@mui/material/Drawer';
@@ -15,10 +16,16 @@ import MailIcon from '@mui/icons-material/Mail';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import avatarAdmin from './assests/img.JPG'
 
+
 import { useNavigate } from 'react-router-dom';
 
 import { navbarConfig1 } from '../../routes/routesConfig';
 import { navbarConfig2 } from '../../routes/routesConfig';
+import {
+  matchPath,
+  useLocation
+} from "react-router-dom";
+
 
 // configs
 import { SETTING } from '../../configs'
@@ -72,10 +79,16 @@ const openedMixin = (theme) => ({
     ...theme.mixins.toolbar,
   }));
 
+
+
+
 export default function NarBar({open, handleDrawerClose}) {
     const theme = useTheme();
     const navigate = useNavigate();
     // const [style, setStyle] = useState("");
+    const { pathname } = useLocation();
+    // const matchPath = useMatch()
+    console.log('Path', pathname)
 
     function handleNavigate(href) {
       // setStyle("cont2");
@@ -101,63 +114,80 @@ export default function NarBar({open, handleDrawerClose}) {
 
         <List>
           <div className='topic'>MANAGEMENT</div>
-          {navbarConfig1.map((item, index) => (
-            <ListItemButton
-            // className={style} 
-            onClick={()=> handleNavigate(item.href)}
-              key={index}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-                
-              }}
-            >
-              
-              <ListItemIcon
+          {navbarConfig1.map((item, index) => {
+            // const isActive = matchPath( pathname, item.href )
+            console.log('pathname', pathname)
+            console.log('href', item.href)
+            const isActive = pathname === item.href
+            return (
+              <ListItemButton
+              // className={style} 
+              onClick={()=> handleNavigate(item.href)}
+                key={index}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                  bgcolor: isActive ? '#0493721c !important' : '',
+                  color: isActive ? '#049372' : 'gray'
                 }}
+
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
-                style={{fontSize:'10px'}}
-              />
-            </ListItemButton>
-          ))}
+                
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                    color: isActive ? '#049372' : 'gray'
+                  }}
+                >
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
+                  style={{fontSize:'10px'}}
+                />
+              </ListItemButton>
+            )
+          }
+
+          )}
         </List>
         <List>
           <div className='topic'>APP</div>
-          {navbarConfig2.map((item, index) => (
-            <ListItemButton
-            // className={style} 
-            onClick={()=> handleNavigate(item.href)}
-              key={index}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-                
-              }}
-            >
-              
-              <ListItemIcon
+          {navbarConfig2.map((item, index) => {
+            const isActive = pathname === item.href
+            return (
+              <ListItemButton
+              // className={style} 
+              onClick={()=> handleNavigate(item.href)}
+                key={index}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                  bgcolor: isActive ? '#0493721c !important' : '',
+                  color: isActive ? '#049372' : 'gray'
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
-                style={{fontSize:'10px'}}
-              />
-            </ListItemButton>
-          ))}
+                
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                    color: isActive ? '#049372' : 'gray'
+                  }}
+                >
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }}
+                  style={{fontSize:'10px'}}
+                />
+              </ListItemButton>
+              
+            )
+          })}
         </List>
       </DrawerStyled>
     )

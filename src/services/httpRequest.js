@@ -14,6 +14,10 @@ class HttpRequest {
   async post(url, data = {}, config = {}) {
     return axiosInstance.post(url, data, config)
   }
+
+  async delete(url, data = {}, config ={}) {
+    return axiosInstance.delete(url, data, config)
+  }
 }
 
 const httpRequest = new HttpRequest();
