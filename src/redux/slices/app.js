@@ -8,7 +8,7 @@ const initialState = {
     isLoading: false,
     user: null
 }
-
+console.log(initialState)
 export const login = createAsyncThunk('app/login', 
 async (payload) => {
     // call api
