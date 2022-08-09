@@ -1,6 +1,6 @@
 import '../../App.css';
 import './user.scss'
-import React,{useState,useRef, useEffect} from 'react'
+import React,{useState, useEffect} from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -13,7 +13,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import CircularProgress from '@mui/material/CircularProgress';
+//import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import InputLabel from '@mui/material/InputLabel';
@@ -52,7 +52,7 @@ export default function User() {
 
 
   // refs
-  const progressRef = useRef(null)
+  //const progressRef = useRef(null)
 
 
   // fetch Users
@@ -178,7 +178,7 @@ export default function User() {
 
   async function deleteCard(userId) {
     try {
-        const res = await usersApi.deleteUsers(userId);
+        //const res = await usersApi.deleteUsers(userId);
         const newUsers = users.filter((item) => item._id !== userId);
         setUsers(newUsers);
         setOpen(true);

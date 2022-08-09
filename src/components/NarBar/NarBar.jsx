@@ -1,7 +1,7 @@
 import React from 'react'
 import './NavBar.scss'
 import '../../index.css'
-import { palette } from '@mui/system';
+//import { palette } from '@mui/system';
 import { styled, useTheme } from '@mui/material/styles';
 import List from '@mui/material/List';
 import MuiDrawer from '@mui/material/Drawer';
@@ -22,7 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { navbarConfig1 } from '../../routes/routesConfig';
 import { navbarConfig2 } from '../../routes/routesConfig';
 import {
-  matchPath,
+  // matchPath,
   useLocation
 } from "react-router-dom";
 
